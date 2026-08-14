@@ -1,208 +1,59 @@
 <!doctype html>
 <html lang="cs">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#11130f" />
-  <title>Houbová farma — dashboard</title>
-  <style>
-    :root{
-      --bg:#f3f1e8;--panel:#fbfaf5;--ink:#141611;--muted:#6c7165;--line:#d8d6cc;
-      --accent:#6f7f52;--accent2:#bcc79d;--warn:#b4772f;--dark:#1a1e17;--ok:#375b35;
-      --radius:22px;--shadow:0 10px 40px rgba(20,22,17,.06);
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.35}
-    a{color:inherit}
-    img{display:block;max-width:100%}
-    .wrap{max-width:1400px;margin:auto;padding:18px}
-    header{display:grid;gap:18px;padding:16px 0 8px}
-    .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
-    h1{font-size:clamp(34px,7vw,78px);line-height:.92;letter-spacing:-.055em;margin:4px 0 0;max-width:900px}
-    .sub{max-width:800px;color:var(--muted);font-size:15px;margin-top:12px}
-    .topgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0 26px}
-    .metric,.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .metric{padding:18px;min-height:130px;display:flex;flex-direction:column;justify-content:space-between}
-    .metric strong{font-size:clamp(28px,4vw,48px);letter-spacing:-.04em}
-    .label{font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:700}
-    .section{margin:30px 0}
-    .section-head{display:flex;justify-content:space-between;gap:16px;align-items:end;margin-bottom:12px}
-    .section h2{font-size:clamp(26px,4vw,46px);letter-spacing:-.045em;line-height:1;margin:0}
-    .section-note{color:var(--muted);font-size:13px;max-width:560px}
-    .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 18px}
-    button.filter{border:1px solid var(--line);background:var(--panel);padding:9px 13px;border-radius:999px;cursor:pointer;font:inherit;font-size:13px}
-    button.filter.active{background:var(--dark);color:#fff;border-color:var(--dark)}
-    .culture-list{display:grid;gap:12px}
-    .culture{overflow:hidden}
-    .culture-grid{display:grid;grid-template-columns:190px minmax(0,1fr)}
-    .species-visual{position:relative;min-height:100%;background:#ebe8dc;border-right:1px solid var(--line)}
-    .species-visual img{width:100%;height:100%;min-height:220px;object-fit:cover}
-    .visual-label{position:absolute;left:10px;bottom:10px;background:rgba(20,22,17,.84);color:#fff;padding:6px 8px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;backdrop-filter:blur(6px)}
-    .culture-body{padding:18px;min-width:0}
-    .culture-top{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
-    .culture h3{font-size:22px;letter-spacing:-.03em;margin:0 0 2px}
-    .latin{color:var(--muted);font-size:13px;font-style:italic}
-    .status{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border-radius:999px;background:#eceee4;font-size:12px;font-weight:700;white-space:nowrap}
-    .status:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent)}
-    .meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:16px 0}
-    .meta div{padding:11px 12px;border-radius:14px;background:#f0efe8;min-height:70px}
-    .meta b{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}
-    .timeline{position:relative;margin:26px 8px 16px;padding-top:10px}
-    .rail{height:7px;border-radius:999px;background:#dfded7;position:relative}
-    .rail .progress{position:absolute;left:0;top:0;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:36%}
-    .stages{display:grid;grid-template-columns:repeat(5,1fr);position:relative;margin-top:-9px}
-    .stage{text-align:center;position:relative;padding-top:22px;font-size:11px;color:var(--muted)}
-    .stage:before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:14px;height:14px;border-radius:50%;background:var(--panel);border:3px solid #c8c7bf}
-    .stage.done:before{background:var(--accent);border-color:var(--accent)}
-    .stage.next:before{background:#fff;border-color:var(--warn);box-shadow:0 0 0 5px rgba(180,119,47,.14)}
-    .stage .code{display:block;color:var(--ink);font-weight:800;margin-bottom:2px}
-    .nextbox{margin-top:10px;border-top:1px solid var(--line);padding-top:12px;display:flex;gap:10px;justify-content:space-between;align-items:flex-start}
-    .nextbox p{margin:0;color:var(--muted);font-size:13px;max-width:850px}
-    .grid2{display:grid;grid-template-columns:1.2fr .8fr;gap:12px}
-    .pad{padding:18px}
-    table{width:100%;border-collapse:collapse;font-size:13px}
-    th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line)}
-    th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
-    .env{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
-    .env .big{background:var(--dark);color:#fff;border-radius:18px;padding:18px;min-height:150px}
-    .env .big strong{display:block;font-size:44px;letter-spacing:-.05em;margin-top:12px}
-    .muted{color:var(--muted)}
-    .error{padding:18px;border:1px solid #d5a0a0;border-radius:16px;background:#fff3f3;color:#7b2c2c}
-    footer{padding:30px 0 40px;color:var(--muted);font-size:12px}
-    @media(max-width:900px){
-      .topgrid{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}.meta{grid-template-columns:1fr 1fr}
-      .culture-grid{grid-template-columns:150px minmax(0,1fr)}.species-visual img{min-height:240px}
-    }
-    @media(max-width:620px){
-      .wrap{padding:12px}.topgrid{grid-template-columns:1fr 1fr;gap:8px}.metric{padding:14px;min-height:115px}
-      .culture-grid{grid-template-columns:1fr}.species-visual{border-right:0;border-bottom:1px solid var(--line);height:180px}.species-visual img{min-height:0;height:180px;object-position:center}
-      .culture-body{padding:14px}.culture-top{display:block}.status{margin-top:10px}.meta{grid-template-columns:1fr 1fr}
-      .stages{grid-template-columns:repeat(5,110px);min-width:550px}.timeline{overflow-x:auto;padding-bottom:8px}.rail{min-width:550px}
-      .nextbox{display:block}.nextbox .label{margin-bottom:5px}.section-head{display:block}.section-note{margin-top:8px}.env{grid-template-columns:1fr}
-    }
-    @media(max-width:390px){.topgrid{grid-template-columns:1fr}.meta{grid-template-columns:1fr}.species-visual{height:160px}.species-visual img{height:160px}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#11130f">
+<title>Houbová farma — dashboard</title>
+<style>
+:root{
+  --bg:#f3f1e8;--panel:#fbfaf5;--ink:#141611;--muted:#6c7165;--line:#d8d6cc;
+  --accent:#6f7f52;--accent2:#bcc79d;--warn:#d8ad2f;--dark:#171914;--radius:22px;
+  --phase-inoculation:#6f7f52;--phase-colonization:#a9b58a;--phase-induction:#d8ad2f;
+  --phase-primordia:#b4772f;--phase-fruiting:#536d45;--phase-bonus:#171914;--phase-liquid:#7b8870;
+  --shadow:0 10px 40px rgba(20,22,17,.06)
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.35}a{color:inherit}img{display:block;max-width:100%}.wrap{max-width:1440px;margin:auto;padding:18px}header{padding:16px 0 8px}.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:750}h1{font-size:clamp(38px,7vw,82px);line-height:.9;letter-spacing:-.06em;margin:5px 0 0}.sub{max-width:880px;color:var(--muted);font-size:15px;margin:14px 0 0}.topgrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:20px 0 30px}.metric,.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.metric{padding:17px;min-height:128px;display:flex;flex-direction:column;justify-content:space-between}.metric strong{font-size:clamp(26px,3.5vw,44px);letter-spacing:-.045em}.label{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:750}.section{margin:32px 0}.section-head{display:flex;justify-content:space-between;gap:16px;align-items:end;margin-bottom:13px}.section h2{font-size:clamp(28px,4vw,48px);letter-spacing:-.05em;line-height:.95;margin:0}.section-note{color:var(--muted);font-size:13px;max-width:610px}.toolbar{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0 18px}.filter{border:1px solid var(--line);background:var(--panel);padding:9px 13px;border-radius:999px;cursor:pointer;font:inherit;font-size:13px}.filter.active{background:var(--dark);color:#fff;border-color:var(--dark)}.culture-list{display:grid;gap:12px}.culture{overflow:hidden}.culture-grid{display:grid;grid-template-columns:190px minmax(0,1fr)}.species-visual{background:#ebe8dc;border-right:1px solid var(--line);min-height:100%}.species-visual img{width:100%;height:100%;min-height:250px;object-fit:cover}.culture-body{padding:18px}.culture-top{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}.culture h3{font-size:22px;letter-spacing:-.03em;margin:0 0 2px}.latin{color:var(--muted);font-size:13px;font-style:italic}.status{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border-radius:999px;background:#eceee4;font-size:12px;font-weight:700;white-space:nowrap}.status:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent)}.meta{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;margin:16px 0}.meta div{padding:11px 12px;border-radius:14px;background:#f0efe8;min-height:70px}.meta b{display:block;font-size:11px;color:var(--muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.04em}.yield{font-weight:800;font-size:17px;letter-spacing:-.02em}.timeline-scroll{overflow-x:auto;padding:8px 2px 5px}.timeline{min-width:760px;margin:12px 6px 6px}.rail{height:7px;border-radius:999px;background:#dfded7;position:relative}.rail-progress{height:100%;border-radius:999px;background:var(--dark)}.stages{display:grid;position:relative;margin-top:-9px}.stage{text-align:center;position:relative;padding:22px 5px 0;font-size:11px;color:var(--muted);min-width:108px}.stage:before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:15px;height:15px;border-radius:50%;background:var(--panel);border:3px solid #c8c7bf}.stage.done:before,.stage.next:before{background:var(--phase);border-color:var(--phase)}.stage.next:before{box-shadow:0 0 0 5px color-mix(in srgb,var(--phase) 20%,transparent)}.stage .code{display:block;color:var(--ink);font-weight:850;margin-bottom:2px}.phase-inoculation{--phase:var(--phase-inoculation)}.phase-colonization{--phase:var(--phase-colonization)}.phase-induction{--phase:var(--phase-induction)}.phase-primordia{--phase:var(--phase-primordia)}.phase-fruiting{--phase:var(--phase-fruiting)}.phase-fruiting-bonus{--phase:var(--phase-bonus)}.phase-liquid-culture{--phase:var(--phase-liquid)}.nextbox{margin-top:14px;border-top:1px solid var(--line);padding-top:12px;display:grid;grid-template-columns:140px 1fr;gap:10px}.nextbox p{margin:0;color:var(--muted);font-size:13px}.grid2{display:grid;grid-template-columns:1.15fr .85fr;gap:12px}.pad{padding:18px}table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line)}th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}.env{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.env .big{background:var(--dark);color:#fff;border-radius:18px;padding:18px;min-height:145px}.env .big strong{display:block;font-size:44px;letter-spacing:-.05em;margin-top:12px}.glossary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:15px}.term{padding:14px;border:1px solid var(--line);border-radius:16px;background:#f7f5ee}.term h3{font-size:15px;margin:0 0 7px}.term p{font-size:12px;color:var(--muted);margin:0 0 10px}.term a{font-size:11px;font-weight:750;text-decoration:none;border-bottom:1px solid var(--ink)}.sources{display:grid;gap:8px;margin-top:14px}.source{padding:12px 14px;border:1px solid var(--line);border-radius:14px;text-decoration:none;background:#f0efe8}.muted{color:var(--muted)}footer{padding:30px 0 40px;color:var(--muted);font-size:12px}
+@media(max-width:1100px){.topgrid{grid-template-columns:repeat(3,1fr)}.meta{grid-template-columns:repeat(3,1fr)}.glossary{grid-template-columns:1fr 1fr}}
+@media(max-width:820px){.culture-grid{grid-template-columns:150px minmax(0,1fr)}.grid2{grid-template-columns:1fr}.meta{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.wrap{padding:11px}.topgrid{grid-template-columns:1fr 1fr;gap:8px}.metric{padding:13px;min-height:108px}.culture-grid{display:block}.species-visual{border-right:0;border-bottom:1px solid var(--line);height:180px}.species-visual img{min-height:0;height:180px}.culture-body{padding:14px}.culture-top{display:block}.status{margin-top:9px;white-space:normal}.meta{grid-template-columns:1fr 1fr}.section-head{display:block}.section-note{margin-top:8px}.nextbox{grid-template-columns:1fr}.glossary{grid-template-columns:1fr}.env{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-  <main class="wrap">
-    <header>
-      <div>
-        <div class="eyebrow">Detva · živá evidence</div>
-        <h1>Houbová farma</h1>
-        <p class="sub">Responzivní dashboard pro sledování kultur, milníků, podmínek, inventáře a nákladů. Každá kultura má vlastní historii a druhový vizuál pro rychlou orientaci.</p>
-      </div>
-    </header>
-
-    <section class="topgrid" id="metrics"></section>
-
-    <section class="section">
-      <div class="section-head">
-        <div><div class="eyebrow">Produkce</div><h2>Timeline kultur</h2></div>
-        <div class="section-note">Ilustrační snímek představuje druh. Skutečná data každého bloku zůstávají oddělená podle ID.</div>
-      </div>
-      <div class="toolbar" id="filters"></div>
-      <div class="culture-list" id="cultures"></div>
-    </section>
-
-    <section class="section grid2">
-      <div class="card pad">
-        <div class="eyebrow">Ekonomika</div>
-        <h2 style="font-size:34px;margin-top:4px">Náklady</h2>
-        <table id="costs"></table>
-      </div>
-      <div class="card pad">
-        <div class="eyebrow">Prostředí</div>
-        <h2 style="font-size:34px;margin-top:4px">Podmínky</h2>
-        <div class="env">
-          <div class="big"><span class="label" style="color:#b8bdaf">Teplota</span><strong id="temp">—</strong><span class="muted" style="color:#b8bdaf">čeká na ustálené měření</span></div>
-          <div class="big"><span class="label" style="color:#b8bdaf">Vlhkost</span><strong id="rh">—</strong><span class="muted" style="color:#b8bdaf">čeká na ustálené měření</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section grid2">
-      <div class="card pad">
-        <div class="eyebrow">Sklad</div>
-        <h2 style="font-size:34px;margin-top:4px">Inventář</h2>
-        <table id="inventory"></table>
-      </div>
-      <div class="card pad">
-        <div class="eyebrow">Zdroje</div>
-        <h2 style="font-size:34px;margin-top:4px">Reference</h2>
-        <div id="sources" style="display:grid;gap:8px;margin-top:14px"></div>
-      </div>
-    </section>
-
-    <footer id="updated"></footer>
-  </main>
-
-  <script>
-    const speciesImages={
-      koralovec:'./assets/koralovec.jpg',
-      citronova:'./assets/citronova.jpg',
-      kralovska:'./assets/kralovska.jpg',
-      shiitake:'./assets/shiitake.jpg'
-    };
-    const fmtDate=d=>d?new Date(d+'T12:00:00').toLocaleDateString('cs-CZ'):'—';
-    const euro=n=>new Intl.NumberFormat('cs-CZ',{style:'currency',currency:'EUR'}).format(n);
-    const daysBetween=(a,b)=>Math.max(0,Math.round((new Date(b)-new Date(a))/86400000));
-
-    fetch('./data.json?v='+Date.now()).then(r=>{
-      if(!r.ok) throw new Error('Data se nepodařilo načíst.');
-      return r.json();
-    }).then(data=>{
-      const cultures=data.cultures;
-      const totalCost=data.costs.reduce((s,x)=>s+x.total,0);
-      document.getElementById('metrics').innerHTML=`
-        <div class="metric"><div class="label">Aktivní bloky</div><strong>${cultures.filter(x=>x.form==='pěstební blok').length}</strong><span class="muted">3 druhy</span></div>
-        <div class="metric"><div class="label">Tekuté mycelium</div><strong>${cultures.filter(x=>x.form==='tekuté mycelium').length}</strong><span class="muted">Shiitake 10 ml</span></div>
-        <div class="metric"><div class="label">Náklady celkem</div><strong>${euro(totalCost)}</strong><span class="muted">evidované nákupy</span></div>
-        <div class="metric"><div class="label">Měření</div><strong>${data.environment.temperatureC ?? '—'}</strong><span class="muted">T / RH doplníme</span></div>`;
-
-      const groups=[['all','Vše'],['koralovec','Korálovec'],['citronova','Hlíva citronová'],['kralovska','Hlíva královská'],['shiitake','Shiitake']];
-      const filters=document.getElementById('filters');
-      filters.innerHTML=groups.map((g,i)=>`<button class="filter ${i===0?'active':''}" data-g="${g[0]}">${g[1]}</button>`).join('');
-
-      function render(group='all'){
-        const filtered=cultures.filter(c=>group==='all'||c.group===group);
-        document.getElementById('cultures').innerHTML=filtered.map(c=>{
-          const start=c.inoculatedAt||c.syringePreparedAt;
-          const age=daysBetween(start,data.meta.lastUpdated.slice(0,10));
-          const stages=c.stages.slice(0,5);
-          const progress=Math.max(10,Math.min(92,stages.filter(s=>s.state==='done').length/Math.max(1,stages.length-1)*100));
-          const image=speciesImages[c.group]||'';
-          return `<article class="card culture">
-            <div class="culture-grid">
-              <div class="species-visual">
-                ${image?`<img src="${image}" alt="${c.species} — ilustrační vzhled plodnice" loading="lazy">`:''}
-                <span class="visual-label">druhový vizuál</span>
-              </div>
-              <div class="culture-body">
-                <div class="culture-top"><div><h3>${c.id} · ${c.species}</h3><div class="latin">${c.latin}</div></div><div class="status">${c.status}</div></div>
-                <div class="meta">
-                  <div><b>Forma</b>${c.form}</div><div><b>Velikost</b>${c.size}</div>
-                  <div><b>${c.inoculatedAt?'Naočkování':'Příprava LC'}</b>${fmtDate(start)}</div><div><b>Stáří</b>${age} dní</div>
-                </div>
-                <div class="timeline"><div class="rail"><div class="progress" style="width:${progress}%"></div></div><div class="stages">${stages.map(s=>`<div class="stage ${s.state}"><span class="code">${s.code}</span>${s.label}<br><small>${s.date?fmtDate(s.date):(s.relative||'čeká')}</small></div>`).join('')}</div></div>
-                <div class="nextbox"><div class="label">Další krok</div><p>${c.nextAction}</p></div>
-              </div>
-            </div>
-          </article>`;
-        }).join('');
-      }
-      render();
-      filters.addEventListener('click',e=>{if(!e.target.matches('button'))return;[...filters.children].forEach(x=>x.classList.remove('active'));e.target.classList.add('active');render(e.target.dataset.g)});
-
-      document.getElementById('costs').innerHTML='<thead><tr><th>Nákup</th><th>Dodavatel</th><th>Celkem</th></tr></thead><tbody>'+data.costs.map(x=>`<tr><td>${x.id}</td><td>${x.supplier}</td><td><strong>${euro(x.total)}</strong></td></tr>`).join('')+`<tr><td colspan="2"><strong>Součet</strong></td><td><strong>${euro(totalCost)}</strong></td></tr></tbody>`;
-      document.getElementById('inventory').innerHTML='<thead><tr><th>Položka</th><th>Množství</th><th>Stav</th></tr></thead><tbody>'+data.inventory.map(x=>`<tr><td>${x.name}</td><td>${x.qty} ${x.unit}</td><td>${x.status}</td></tr>`).join('')+'</tbody>';
-      document.getElementById('temp').textContent=data.environment.temperatureC==null?'—':data.environment.temperatureC+' °C';
-      document.getElementById('rh').textContent=data.environment.humidityRH==null?'—':data.environment.humidityRH+' %';
-      document.getElementById('sources').innerHTML=data.sources.map(s=>`<a href="${s.url}" target="_blank" rel="noopener" style="padding:12px 14px;border:1px solid var(--line);border-radius:14px;text-decoration:none;background:#f0efe8">↗ ${s.label}</a>`).join('');
-      document.getElementById('updated').textContent='Data aktualizována: '+new Date(data.meta.lastUpdated).toLocaleString('cs-CZ')+' · '+data.meta.note;
-    }).catch(err=>{
-      document.getElementById('cultures').innerHTML='<div class="error">'+err.message+' Zkus stránku znovu načíst.</div>';
-    });
-  </script>
-</body>
-</html>
+<main class="wrap">
+<header><div class="eyebrow">Detva · živá kultivační evidence</div><h1>Houbová farma</h1><p class="sub">Dashboard sleduje inokulaci, kolonizaci, indukci fruktifikace, tvorbu primordií, jednotlivé fruktifikační vlny, mikroklima, inventář, náklady a odhadovaný výnos.</p></header>
+<section class="topgrid" id="metrics"></section>
+<section class="section"><div class="section-head"><div><div class="eyebrow">Produkce</div><h2>Timeline kultur</h2></div><div class="section-note">Třetí fruktifikační vlna je v evidenci vedena jako bonusová. Základní odhad výnosu vychází z údajů výrobce a třetí vlnu nepřičítá.</div></div><div class="toolbar" id="filters"></div><div class="culture-list" id="cultures"></div></section>
+<section class="section grid2"><div class="card pad"><div class="eyebrow">Ekonomika</div><h2 style="font-size:34px;margin-top:4px">Náklady</h2><table id="costs"></table></div><div class="card pad"><div class="eyebrow">Mikroklima</div><h2 style="font-size:34px;margin-top:4px">Podmínky</h2><div class="env"><div class="big"><span class="label" style="color:#b8bdaf">Teplota</span><strong id="temp">—</strong><span style="color:#b8bdaf">čeká na ustálené měření</span></div><div class="big"><span class="label" style="color:#b8bdaf">RH</span><strong id="rh">—</strong><span style="color:#b8bdaf">relativní vlhkost</span></div></div></div></section>
+<section class="section grid2"><div class="card pad"><div class="eyebrow">Sklad</div><h2 style="font-size:34px;margin-top:4px">Inventář</h2><table id="inventory"></table></div><div class="card pad"><div class="eyebrow">Reference</div><h2 style="font-size:34px;margin-top:4px">Zdroje</h2><div class="sources" id="sources"></div></div></section>
+<section class="section"><div class="section-head"><div><div class="eyebrow">Terminologie</div><h2>Slovník</h2></div><div class="section-note">Odborné pojmy používané v celé evidenci. Každý termín odkazuje na encyklopedický kontext.</div></div><div class="glossary" id="glossary"></div></section>
+<footer id="updated"></footer>
+</main>
+<script>
+const fmtDate=d=>d?new Date(d+'T12:00:00').toLocaleDateString('cs-CZ'):'—';
+const euro=n=>new Intl.NumberFormat('cs-CZ',{style:'currency',currency:'EUR'}).format(n);
+const daysBetween=(a,b)=>Math.max(0,Math.round((new Date(b)-new Date(a))/86400000));
+const speciesImages={koralovec:'./assets/koralovec.jpg',citronova:'./assets/citronova.jpg',kralovska:'./assets/kralovska.jpg',shiitake:'./assets/shiitake.jpg'};
+fetch('./data.json?v='+Date.now()).then(r=>r.json()).then(data=>{
+ const cultures=data.cultures,totalCost=data.costs.reduce((s,x)=>s+x.total,0),f=data.productionForecast;
+ document.getElementById('metrics').innerHTML=`<div class="metric"><div class="label">Produkční bloky</div><strong>${cultures.filter(x=>x.form==='produkční blok').length}</strong><span class="muted">aktuálně evidované</span></div><div class="metric"><div class="label">Čerstvý substrát</div><strong>${f.freshSubstrateKg.toLocaleString('cs-CZ')} kg</strong><span class="muted">zakoupené bloky</span></div><div class="metric"><div class="label">Odhad sklizně ≤3 vlny</div><strong>${f.expectedCumulativeHarvestKg.min.toLocaleString('cs-CZ')}–${f.expectedCumulativeHarvestKg.max.toLocaleString('cs-CZ')} kg</strong><span class="muted">bez bonusu 3. vlny</span></div><div class="metric"><div class="label">Náklady celkem</div><strong>${euro(totalCost)}</strong><span class="muted">evidované nákupy</span></div><div class="metric"><div class="label">Mikroklima</div><strong>${data.environment.temperatureC??'—'}</strong><span class="muted">T / RH doplníme</span></div>`;
+ const groups=[['all','Vše'],['koralovec','Korálovec'],['citronova','Hlíva citronová'],['kralovska','Hlíva královská'],['shiitake','Shiitake']];
+ const filters=document.getElementById('filters');filters.innerHTML=groups.map((g,i)=>`<button class="filter ${i===0?'active':''}" data-g="${g[0]}">${g[1]}</button>`).join('');
+ function render(group='all'){
+  document.getElementById('cultures').innerHTML=cultures.filter(c=>group==='all'||c.group===group).map(c=>{
+   const start=c.inoculatedAt||c.syringePreparedAt,age=daysBetween(start,data.meta.lastUpdated.slice(0,10)),stages=c.stages;
+   const done=stages.filter(s=>s.state==='done').length,progress=Math.max(6,Math.min(100,done/Math.max(1,stages.length-1)*100));
+   const yf=c.yieldForecast,yr=yf?.expectedCumulativeKg?`${yf.expectedCumulativeKg.min.toLocaleString('cs-CZ')}–${yf.expectedCumulativeKg.max.toLocaleString('cs-CZ')} kg`:`${yf?.perKgFreshSubstrateKg?.min??'—'}–${yf?.perKgFreshSubstrateKg?.max??'—'} kg/kg`;
+   return `<article class="card culture"><div class="culture-grid"><div class="species-visual"><img src="${speciesImages[c.group]}" alt="${c.species}"></div><div class="culture-body"><div class="culture-top"><div><h3>${c.id} · ${c.species}</h3><div class="latin">${c.latin}</div></div><div class="status">${c.status}</div></div><div class="meta"><div><b>Forma</b>${c.form}</div><div><b>Hmotnost</b>${c.substrateKg?c.substrateKg.toLocaleString('cs-CZ')+' kg':c.size}</div><div><b>${c.inoculatedAt?'Inokulace':'Příprava LC'}</b>${fmtDate(start)}</div><div><b>Stáří kultury</b>${age} dní</div><div><b>Odhad sklizně ≤3 vlny</b><span class="yield">${yr}</span></div></div><div class="timeline-scroll"><div class="timeline"><div class="rail"><div class="rail-progress" style="width:${progress}%"></div></div><div class="stages" style="grid-template-columns:repeat(${stages.length},minmax(108px,1fr))">${stages.map(s=>`<div class="stage ${s.state} phase-${s.phase}"><span class="code">${s.code}</span>${s.label}<br><small>${s.date?fmtDate(s.date):(s.relative||'čeká')}</small></div>`).join('')}</div></div></div><div class="nextbox"><div class="label">Další kultivační krok</div><p>${c.nextAction}</p></div></div></div></article>`;
+  }).join('');
+ }
+ render();filters.addEventListener('click',e=>{if(!e.target.matches('button'))return;[...filters.children].forEach(x=>x.classList.remove('active'));e.target.classList.add('active');render(e.target.dataset.g)});
+ document.getElementById('costs').innerHTML='<thead><tr><th>Nákup</th><th>Dodavatel</th><th>Celkem</th></tr></thead><tbody>'+data.costs.map(x=>`<tr><td>${x.id}</td><td>${x.supplier}</td><td><strong>${euro(x.total)}</strong></td></tr>`).join('')+`<tr><td colspan="2"><strong>Součet</strong></td><td><strong>${euro(totalCost)}</strong></td></tr></tbody>`;
+ document.getElementById('inventory').innerHTML='<thead><tr><th>Položka</th><th>Množství</th><th>Stav</th></tr></thead><tbody>'+data.inventory.map(x=>`<tr><td>${x.name}</td><td>${x.qty} ${x.unit}</td><td>${x.status}</td></tr>`).join('')+'</tbody>';
+ document.getElementById('temp').textContent=data.environment.temperatureC==null?'—':data.environment.temperatureC+' °C';document.getElementById('rh').textContent=data.environment.humidityRH==null?'—':data.environment.humidityRH+' %';
+ document.getElementById('sources').innerHTML=data.sources.map(s=>`<a class="source" href="${s.url}" target="_blank" rel="noopener">${s.label} ↗</a>`).join('');
+ document.getElementById('glossary').innerHTML=data.glossary.map(g=>`<article class="term"><h3>${g.term}</h3><p>${g.definition}</p><a href="${g.wiki}" target="_blank" rel="noopener">Wiki ↗</a></article>`).join('');
+ document.getElementById('updated').textContent='Poslední aktualizace evidence: '+new Date(data.meta.lastUpdated).toLocaleString('cs-CZ')+' · '+data.productionForecast.caution;
+}).catch(err=>{document.getElementById('cultures').innerHTML='<div class="card pad">Data se nepodařilo načíst: '+err.message+'</div>'});
+</script>
+</body></html>
