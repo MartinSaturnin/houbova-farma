@@ -1,0 +1,37 @@
+{
+  "recordedAt": "2026-08-14T21:02:00+02:00",
+  "temperatureC": 19,
+  "humidityRH": null,
+  "events": [
+    {
+      "cultureId": "KOR-01",
+      "state": "inkubace / kolonizace",
+      "opening": "neotevřen",
+      "note": "Kolonizace substrátu podle vizuální kontroly zatím působí slabě; indukce fruktifikace odložena."
+    },
+    {
+      "cultureId": "KOR-02",
+      "state": "indukce fruktifikace",
+      "opening": "boční řez",
+      "note": "Boční iniciační řez potvrzen uživatelem."
+    },
+    {
+      "cultureId": "HCIT-01",
+      "state": "indukce fruktifikace",
+      "opening": "boční řez",
+      "note": "Boční iniciační řez potvrzen uživatelem."
+    },
+    {
+      "cultureId": "HCIT-02",
+      "state": "indukce fruktifikace",
+      "opening": "boční řez",
+      "note": "Boční iniciační řez potvrzen uživatelem."
+    },
+    {
+      "cultureId": "HKR-01",
+      "state": "indukce fruktifikace",
+      "opening": "seříznutý vršek sáčku",
+      "note": "Horní část sáčku seříznuta; blok ponechán otevřen shora."
+    }
+  ]
+}
