@@ -1,0 +1,176 @@
+{
+  "meta": {
+    "title": "Houbová farma",
+    "location": "Detva, Slovensko",
+    "lastUpdated": "2026-08-14T18:38:00+02:00",
+    "currency": "EUR",
+    "note": "Teplota a RH zatím nejsou potvrzené. Údaj z prvního teploměru nebyl ustálený."
+  },
+  "environment": {
+    "temperatureC": null,
+    "humidityRH": null,
+    "sensorStatus": "čeká na ustálené měření",
+    "sensors": [
+      {"id": "ENV-01", "name": "SwitchBot Thermometer & Hygrometer Plus", "role": "u pěstebních bloků", "status": "objednáno"},
+      {"id": "ENV-02", "name": "SwitchBot Thermometer & Hygrometer Plus", "role": "referenční venkovní", "status": "objednáno"}
+    ]
+  },
+  "cultures": [
+    {
+      "id": "KOR-01",
+      "species": "Korálovec ježovitý",
+      "latin": "Hericium erinaceus",
+      "group": "koralovec",
+      "form": "pěstební blok",
+      "size": "M / Hobby 2,5 kg",
+      "inoculatedAt": "2026-06-22",
+      "observedAt": "2026-08-14",
+      "status": "připraven k aktivaci",
+      "nextAction": "Naříznout bok sáčku do X cca 5 × 5 cm a zahájit plodicí režim.",
+      "stages": [
+        {"code": "M0", "label": "Naočkování", "state": "done", "date": "2026-06-22"},
+        {"code": "M1", "label": "Prorostlý blok", "state": "done", "date": "2026-08-14", "note": "referenční fotografie"},
+        {"code": "M2", "label": "Aktivace / řez", "state": "next", "date": null},
+        {"code": "M3", "label": "Primordia", "state": "future", "relative": "+4–5 dní po aktivaci"},
+        {"code": "M4", "label": "1. sklizeň", "state": "future", "relative": "podle vývoje plodnice"}
+      ]
+    },
+    {
+      "id": "KOR-02",
+      "species": "Korálovec ježovitý",
+      "latin": "Hericium erinaceus",
+      "group": "koralovec",
+      "form": "pěstební blok",
+      "size": "M / Hobby 2,5 kg",
+      "inoculatedAt": "2026-06-22",
+      "observedAt": "2026-08-14",
+      "status": "připraven k aktivaci",
+      "nextAction": "Naříznout bok sáčku do X cca 5 × 5 cm a zahájit plodicí režim.",
+      "stages": [
+        {"code": "M0", "label": "Naočkování", "state": "done", "date": "2026-06-22"},
+        {"code": "M1", "label": "Prorostlý blok", "state": "done", "date": "2026-08-14", "note": "referenční fotografie"},
+        {"code": "M2", "label": "Aktivace / řez", "state": "next", "date": null},
+        {"code": "M3", "label": "Primordia", "state": "future", "relative": "+4–5 dní po aktivaci"},
+        {"code": "M4", "label": "1. sklizeň", "state": "future", "relative": "podle vývoje plodnice"}
+      ]
+    },
+    {
+      "id": "HCIT-01",
+      "species": "Hlíva citronová",
+      "latin": "Pleurotus citrinopileatus",
+      "group": "citronova",
+      "form": "pěstební blok",
+      "size": "M / Hobby 2,5 kg",
+      "inoculatedAt": "2026-05-27",
+      "observedAt": "2026-08-14",
+      "status": "priorita aktivace",
+      "nextAction": "Naříznout bok sáčku do X cca 5 × 5 cm a zahájit plodicí režim.",
+      "stages": [
+        {"code": "M0", "label": "Naočkování", "state": "done", "date": "2026-05-27"},
+        {"code": "M1", "label": "Prorostlý blok", "state": "done", "date": "2026-08-14", "note": "silně prorostlý, žluté metabolity/kapky pozorovány"},
+        {"code": "M2", "label": "Aktivace / řez", "state": "next", "date": null},
+        {"code": "M3", "label": "Primordia", "state": "future", "relative": "+7–14 dní po aktivaci"},
+        {"code": "M4", "label": "1. sklizeň", "state": "future", "relative": "podle otevření klobouků"}
+      ]
+    },
+    {
+      "id": "HCIT-02",
+      "species": "Hlíva citronová",
+      "latin": "Pleurotus citrinopileatus",
+      "group": "citronova",
+      "form": "pěstební blok",
+      "size": "M / Hobby 2,5 kg",
+      "inoculatedAt": "2026-05-27",
+      "observedAt": "2026-08-14",
+      "status": "priorita aktivace",
+      "nextAction": "Naříznout bok sáčku do X cca 5 × 5 cm a zahájit plodicí režim.",
+      "stages": [
+        {"code": "M0", "label": "Naočkování", "state": "done", "date": "2026-05-27"},
+        {"code": "M1", "label": "Prorostlý blok", "state": "done", "date": "2026-08-14", "note": "silně prorostlý, žluté metabolity/kapky pozorovány"},
+        {"code": "M2", "label": "Aktivace / řez", "state": "next", "date": null},
+        {"code": "M3", "label": "Primordia", "state": "future", "relative": "+7–14 dní po aktivaci"},
+        {"code": "M4", "label": "1. sklizeň", "state": "future", "relative": "podle otevření klobouků"}
+      ]
+    },
+    {
+      "id": "HKR-01",
+      "species": "Hlíva královská",
+      "latin": "Pleurotus eryngii",
+      "group": "kralovska",
+      "form": "pěstební blok",
+      "size": "L",
+      "inoculatedAt": "2026-07-07",
+      "observedAt": "2026-08-14",
+      "status": "čeká na potvrzení teploty",
+      "nextAction": "Nejdříve doplnit ustálenou teplotu; potom otevřít horní část sáčku podle plodicího postupu.",
+      "stages": [
+        {"code": "M0", "label": "Naočkování", "state": "done", "date": "2026-07-07"},
+        {"code": "M1", "label": "Prorostlý blok", "state": "done", "date": "2026-08-14", "note": "kompaktní bílé prorůstání"},
+        {"code": "M2", "label": "Aktivace", "state": "next", "date": null},
+        {"code": "M3", "label": "Primordia", "state": "future", "relative": "+3–5 dní po aktivaci při vhodné teplotě"},
+        {"code": "M4", "label": "1. sklizeň", "state": "future", "relative": "cca +7–10 dní po rozběhnutí plodnic"}
+      ]
+    },
+    {
+      "id": "SHI-LC-01",
+      "species": "Shiitake",
+      "latin": "Lentinula edodes",
+      "group": "shiitake",
+      "form": "tekuté mycelium",
+      "size": "10 ml",
+      "syringePreparedAt": "2026-08-10",
+      "observedAt": "2026-08-14",
+      "status": "LC ve stříkačce",
+      "nextAction": "Připravit zrnitou sadbu; substrát zatím nebyl naočkován.",
+      "stages": [
+        {"code": "L0", "label": "Nasazení do stříkačky", "state": "done", "date": "2026-08-10"},
+        {"code": "L1", "label": "Zrnitá sadba", "state": "next", "date": null},
+        {"code": "L2", "label": "Nový substrát", "state": "future", "relative": "po plném prorostení sadby"},
+        {"code": "L3", "label": "Kolonizace bloku", "state": "future", "relative": "cca 60–80 dní"},
+        {"code": "L4", "label": "Plodění", "state": "future", "relative": "po vyzrání bloku"}
+      ]
+    }
+  ],
+  "costs": [
+    {
+      "id": "PUR-001",
+      "supplier": "SvětHub / Green Plant s.r.o.",
+      "order": "2026000914",
+      "invoice": "2026000953",
+      "orderedAt": "2026-08-09",
+      "invoiceAt": "2026-08-10",
+      "total": 78.22,
+      "categories": [
+        {"name": "Hotové plodící bloky", "amount": 33.95},
+        {"name": "Tekuté mycelium", "amount": 9.99},
+        {"name": "Suroviny pro substrát", "amount": 16.48},
+        {"name": "Pěstební sáčky", "amount": 8.00},
+        {"name": "Doprava", "amount": 9.80}
+      ]
+    },
+    {
+      "id": "PUR-002",
+      "supplier": "Alza",
+      "orderedAt": null,
+      "recordedAt": "2026-08-14",
+      "total": 47.70,
+      "categories": [
+        {"name": "Měřicí technika", "amount": 33.80},
+        {"name": "Napájení / příslušenství", "amount": 13.90},
+        {"name": "Doprava netto", "amount": 0.00}
+      ]
+    }
+  ],
+  "inventory": [
+    {"name": "Sójové slupky, 4 mm pelety", "qty": 5, "unit": "kg", "status": "skladem"},
+    {"name": "Čisté bukové brikety", "qty": 10, "unit": "kg", "status": "skladem"},
+    {"name": "Pěstební sáček – střední", "qty": 10, "unit": "ks", "status": "skladem"},
+    {"name": "Shiitake tekuté mycelium", "qty": 10, "unit": "ml", "status": "skladem"},
+    {"name": "SwitchBot Thermometer & Hygrometer Plus", "qty": 2, "unit": "ks", "status": "objednáno"},
+    {"name": "GP ReCyko 950 AAA", "qty": 6, "unit": "ks", "status": "objednáno"}
+  ],
+  "sources": [
+    {"label": "SvětHub", "url": "https://www.svethub.sk/"},
+    {"label": "SvětHub YouTube", "url": "https://www.youtube.com/@svethub/videos"}
+  ]
+}
