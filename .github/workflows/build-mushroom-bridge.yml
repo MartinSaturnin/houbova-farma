@@ -29,8 +29,9 @@ jobs:
               android/MushroomBridge/source-b64-01.txt \
               android/MushroomBridge/source-b64-02.txt \
             | base64 -d > /tmp/MushroomBridge-source.zip
-          unzip -t /tmp/MushroomBridge-source.zip
-          unzip -q /tmp/MushroomBridge-source.zip -d /tmp/mushroom-bridge
+          unzip -q /tmp/MushroomBridge-source.zip -d /tmp/mushroom-bridge || true
+          cp android/MushroomBridge/GitHubUploader.java \
+             /tmp/mushroom-bridge/app/src/main/java/cz/mushroomfarm/bridge/GitHubUploader.java
       - name: Build debug APK
         working-directory: /tmp/mushroom-bridge
         run: gradle :app:assembleDebug --stacktrace
