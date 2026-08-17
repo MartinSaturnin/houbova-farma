@@ -22,7 +22,7 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.10.2'
-      - name: Reconstruct source archive
+      - name: Reconstruct source archive and apply Mushroom Bridge 3
         run: |
           mkdir -p /tmp/mushroom-bridge
           cat android/MushroomBridge/source-b64-00.txt \
@@ -30,13 +30,24 @@ jobs:
               android/MushroomBridge/source-b64-02.txt \
             | base64 -d > /tmp/MushroomBridge-source.zip
           unzip -q /tmp/MushroomBridge-source.zip -d /tmp/mushroom-bridge || true
-          cp android/MushroomBridge/GitHubUploader.java \
-             /tmp/mushroom-bridge/app/src/main/java/cz/mushroomfarm/bridge/GitHubUploader.java
-      - name: Build debug APK
+          cp android/MushroomBridge/v3/MainActivity.java \
+             /tmp/mushroom-bridge/app/src/main/java/cz/mushroomfarm/bridge/MainActivity.java
+          cp android/MushroomBridge/v3/BridgeService.java \
+             /tmp/mushroom-bridge/app/src/main/java/cz/mushroomfarm/bridge/BridgeService.java
+          cp android/MushroomBridge/v3/LocalCsvStore.java \
+             /tmp/mushroom-bridge/app/src/main/java/cz/mushroomfarm/bridge/LocalCsvStore.java
+          cp android/MushroomBridge/v3/AndroidManifest.xml \
+             /tmp/mushroom-bridge/app/src/main/AndroidManifest.xml
+          cp android/MushroomBridge/v3/app-build.gradle \
+             /tmp/mushroom-bridge/app/build.gradle
+          mkdir -p /tmp/mushroom-bridge/app/src/main/res/xml
+          cp android/MushroomBridge/v3/file_paths.xml \
+             /tmp/mushroom-bridge/app/src/main/res/xml/file_paths.xml
+      - name: Build Mushroom Bridge 3 debug APK
         working-directory: /tmp/mushroom-bridge
         run: gradle :app:assembleDebug --stacktrace
       - uses: actions/upload-artifact@v4
         with:
-          name: MushroomBridge-debug-apk
+          name: MushroomBridge-3-apk
           path: /tmp/mushroom-bridge/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
