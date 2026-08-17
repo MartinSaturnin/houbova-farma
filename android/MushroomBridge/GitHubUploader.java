@@ -25,12 +25,16 @@ public final class GitHubUploader {
     }
 
     private final Config config;
+    private String authenticatedLogin = "";
 
     public GitHubUploader(Config config) {
         this.config = config;
+        normalizeConfig();
     }
 
     public void uploadVisit(String visitId, SensorReading in, SensorReading out) throws Exception {
+        validateToken();
+
         JSONObject visit = new JSONObject();
         visit.put("schemaVersion", 1);
         visit.put("visitId", visitId);
@@ -43,6 +47,40 @@ public final class GitHubUploader {
 
         upsertJson(config.livePath, visit, "Mushroom Bridge: aktualizace mikroklimatu");
         appendHistory(visit);
+    }
+
+    private void normalizeConfig() {
+        config.token = clean(config.token);
+        config.owner = clean(config.owner);
+        config.repo = clean(config.repo);
+        config.branch = clean(config.branch);
+        config.livePath = clean(config.livePath);
+        config.historyPath = clean(config.historyPath);
+    }
+
+    private static String clean(String s) {
+        return s == null ? "" : s.trim();
+    }
+
+    private void validateToken() throws Exception {
+        if (config.token.isEmpty()) throw new Exception("GitHub token chybí.");
+        if (config.owner.isEmpty() || config.repo.isEmpty()) throw new Exception("GitHub owner/repo není vyplněn.");
+
+        HttpURLConnection c = open("https://api.github.com/user", "GET");
+        int code = c.getResponseCode();
+        String body = read(code >= 400 ? c.getErrorStream() : c.getInputStream());
+        if (code == 401) {
+            throw new Exception("GitHub token je neplatný nebo expirovaný (401). Vytvoř nový fine-grained token a vlož ho do aplikace.");
+        }
+        if (code == 403) {
+            throw new Exception("GitHub token byl rozpoznán, ale GitHub ho odmítl (403): " + compact(body));
+        }
+        if (code < 200 || code >= 300) {
+            throw new Exception("Test GitHub tokenu selhal HTTP " + code + ": " + compact(body));
+        }
+        try {
+            authenticatedLogin = new JSONObject(body).optString("login", "");
+        } catch (Exception ignored) {}
     }
 
     private void appendHistory(JSONObject visit) throws Exception {
@@ -96,7 +134,7 @@ public final class GitHubUploader {
         int code = c.getResponseCode();
         if (code == 404) return null;
         String body = read(code >= 400 ? c.getErrorStream() : c.getInputStream());
-        if (code < 200 || code >= 300) throw new Exception("GitHub GET " + code + ": " + body);
+        if (code < 200 || code >= 300) throw new Exception("GitHub GET " + code + ": " + compact(body));
         JSONObject obj = new JSONObject(body);
         RemoteFile f = new RemoteFile();
         f.sha = obj.optString("sha", null);
@@ -122,7 +160,31 @@ public final class GitHubUploader {
         c.getOutputStream().write(bytes);
         int code = c.getResponseCode();
         String body = read(code >= 400 ? c.getErrorStream() : c.getInputStream());
-        if (code < 200 || code >= 300) throw new Exception("GitHub PUT " + code + ": " + body);
+        if (code >= 200 && code < 300) return;
+
+        String accepted = clean(c.getHeaderField("X-Accepted-GitHub-Permissions"));
+        String granted = clean(c.getHeaderField("X-OAuth-Scopes"));
+        String who = authenticatedLogin.isEmpty() ? "" : " Přihlášený GitHub účet: " + authenticatedLogin + ".";
+
+        if (code == 404) {
+            StringBuilder m = new StringBuilder();
+            m.append("GitHub token je platný, ale nemůže zapisovat do ")
+                    .append(config.owner).append('/').append(config.repo).append(" (PUT 404).")
+                    .append(who)
+                    .append(" U fine-grained tokenu nastav Resource owner = ")
+                    .append(config.owner)
+                    .append(", Repository access = Only select repositories → ")
+                    .append(config.repo)
+                    .append(", Repository permissions → Contents = Read and write.");
+            if (!accepted.isEmpty()) m.append(" GitHub endpoint vyžaduje: ").append(accepted).append('.');
+            if (!granted.isEmpty()) m.append(" Token hlásí scopes: ").append(granted).append('.');
+            throw new Exception(m.toString());
+        }
+        if (code == 403) {
+            String extra = accepted.isEmpty() ? "" : " Vyžadováno: " + accepted + ".";
+            throw new Exception("GitHub odmítl zápis (403). Zkontroluj Contents: Read and write." + extra + " " + compact(body));
+        }
+        throw new Exception("GitHub PUT " + code + ": " + compact(body));
     }
 
     private HttpURLConnection open(String url, String method) throws Exception {
@@ -133,7 +195,7 @@ public final class GitHubUploader {
         c.setRequestProperty("Accept", "application/vnd.github+json");
         c.setRequestProperty("Authorization", "Bearer " + config.token);
         c.setRequestProperty("X-GitHub-Api-Version", "2022-11-28");
-        c.setRequestProperty("User-Agent", "MushroomBridge/0.1");
+        c.setRequestProperty("User-Agent", "MushroomBridge/0.2");
         c.setRequestProperty("Content-Type", "application/json; charset=utf-8");
         return c;
     }
@@ -145,6 +207,12 @@ public final class GitHubUploader {
         String line;
         while ((line = r.readLine()) != null) b.append(line);
         return b.toString();
+    }
+
+    private static String compact(String s) {
+        if (s == null) return "";
+        String out = s.replace('\n', ' ').replace('\r', ' ').trim();
+        return out.length() > 500 ? out.substring(0, 500) + "…" : out;
     }
 
     private static String enc(String s) throws Exception {
