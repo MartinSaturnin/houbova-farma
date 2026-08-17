@@ -30,6 +30,7 @@ jobs:
               android/MushroomBridge/source-b64-02.txt \
             | base64 -d > /tmp/MushroomBridge-source.zip
           unzip -q /tmp/MushroomBridge-source.zip -d /tmp/mushroom-bridge || true
+          rm -f /tmp/mushroom-bridge/app/src/main/java/cz/mushroomfarm/bridge/GitHubUploader.java
           cp android/MushroomBridge/v3/MainActivity.java \
              /tmp/mushroom-bridge/app/src/main/java/cz/mushroomfarm/bridge/MainActivity.java
           cp android/MushroomBridge/v3/BridgeService.java \
@@ -43,6 +44,7 @@ jobs:
           mkdir -p /tmp/mushroom-bridge/app/src/main/res/xml
           cp android/MushroomBridge/v3/file_paths.xml \
              /tmp/mushroom-bridge/app/src/main/res/xml/file_paths.xml
+          printf '\nandroid.useAndroidX=true\n' >> /tmp/mushroom-bridge/gradle.properties
       - name: Build Mushroom Bridge 3 debug APK
         working-directory: /tmp/mushroom-bridge
         run: gradle :app:assembleDebug --stacktrace
