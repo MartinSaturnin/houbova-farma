@@ -1,0 +1,13 @@
+{
+  "date": "2026-08-16",
+  "type": "facility-change",
+  "title": "Přestěhování produkčních bloků",
+  "location": "Houbový skládek",
+  "details": {
+    "rack": "plastové regály",
+    "positionChange": "produkční bloky přesunuty blíže před okno",
+    "reason": "vyšší dostupnost přirozeného světla"
+  },
+  "affectedCultures": ["KOR-01", "KOR-02", "HCIT-01", "HCIT-02", "HKR-01"],
+  "note": "Změna prostorového uspořádání a světelných podmínek; vhodné porovnávat s následnou fruktifikací a mikroklimatem."
+}
