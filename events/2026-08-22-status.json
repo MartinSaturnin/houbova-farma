@@ -1,0 +1,27 @@
+{
+  "date": "2026-08-22",
+  "type": "culture-status",
+  "observations": [
+    {
+      "cultureId": "HCIT-01",
+      "species": "Hlíva citronová",
+      "latin": "Pleurotus citrinopileatus",
+      "status": "fruktifikace probíhá dobře",
+      "note": "Uživatel hlásí, že citronové hlívy vypadají velmi dobře."
+    },
+    {
+      "cultureId": "HCIT-02",
+      "species": "Hlíva citronová",
+      "latin": "Pleurotus citrinopileatus",
+      "status": "fruktifikace probíhá dobře",
+      "note": "Uživatel hlásí, že citronové hlívy vypadají velmi dobře."
+    },
+    {
+      "cultureId": "HKR-01",
+      "species": "Hlíva královská",
+      "latin": "Pleurotus eryngii",
+      "status": "bez viditelného růstu plodnic",
+      "note": "K 22. 8. 2026 nejsou po několika dnech od otevření patrná primordia ani růst plodnic."
+    }
+  ]
+}
