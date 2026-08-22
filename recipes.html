@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#171914">
+<title>Recepty · Houbová farma</title>
+<style>
+:root{--bg:#f3f1e8;--panel:#fbfaf5;--ink:#141611;--muted:#6c7165;--line:#d8d6cc;--dark:#171914;--accent:#6f7f52;--sand:#e1af72;--radius:22px;--shadow:0 10px 40px rgba(20,22,17,.06)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.4}.wrap{max-width:1440px;margin:auto;padding:18px}a{color:inherit}.nav{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 30px}.nav a{padding:10px 14px;border-radius:999px;text-decoration:none;font-size:13px;font-weight:800;border:1px solid var(--line);background:var(--panel)}.nav .primary{background:var(--dark);color:white;border-color:var(--dark)}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.14em;font-weight:800;color:var(--muted)}h1{font-size:clamp(48px,9vw,108px);line-height:.84;letter-spacing:-.065em;margin:6px 0 16px}.lead{font-size:15px;color:var(--muted);max-width:850px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:24px 0 32px}.stat{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px}.stat strong{font-size:28px;letter-spacing:-.04em;display:block}.toolbar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);padding:12px 0;display:flex;gap:8px;flex-wrap:wrap}.filter{appearance:none;border:1px solid var(--line);background:var(--panel);padding:9px 13px;border-radius:999px;font:inherit;font-size:13px;cursor:pointer}.filter.active{background:var(--dark);color:#fff;border-color:var(--dark)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}.hero{aspect-ratio:16/9;background:#dedbd0;overflow:hidden;position:relative}.hero img{width:100%;height:100%;object-fit:cover;display:block}.pill{position:absolute;left:12px;bottom:12px;background:rgba(23,25,20,.9);color:white;border-radius:999px;padding:7px 10px;font-size:11px;font-weight:800}.body{padding:16px;display:flex;flex-direction:column;gap:10px;flex:1}.species{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800}.body h2{font-size:24px;line-height:1;letter-spacing:-.04em;margin:0}.meta{display:flex;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:12px}.meta span{background:#efede5;padding:6px 8px;border-radius:999px}.ingredients{font-size:13px;color:#4f554b}.ingredients b{color:var(--ink)}details{border-top:1px solid var(--line);padding-top:10px;margin-top:auto}summary{cursor:pointer;font-weight:800;font-size:13px}.steps{font-size:13px;padding-left:20px}.steps li{margin:6px 0}.actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin-top:12px}.actions a{text-align:center;text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:10px 7px;font-size:12px;font-weight:800;background:#f2f0e8}.actions a.youtube{background:#171914;color:#fff;border-color:#171914}.actions a.svet{background:#e9eadf}.section{margin:42px 0}.sourcebox{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:20px}.sourcebox h2{font-size:34px;letter-spacing:-.045em;margin:5px 0 12px}.source-links{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.source-links a{padding:12px 13px;border:1px solid var(--line);border-radius:13px;text-decoration:none;background:#f1efe8;font-size:12px;font-weight:750}.empty{padding:50px 20px;text-align:center;color:var(--muted);grid-column:1/-1}footer{color:var(--muted);font-size:12px;padding:30px 0 40px}
+@media(max-width:1050px){.grid{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.wrap{padding:11px}.grid{grid-template-columns:1fr}.source-links{grid-template-columns:1fr}.actions{grid-template-columns:1fr}.toolbar{top:0}.body h2{font-size:22px}}
+</style>
+</head>
+<body><main class="wrap">
+<nav class="nav"><a class="primary" href="./">← Dashboard</a><a href="./wiki.html">Viki</a><a href="./recipes.json" target="_blank" rel="noopener">JSON data ↗</a><a href="https://www.svethub.sk/" target="_blank" rel="noopener">SvetHub ↗</a></nav>
+<div class="eyebrow">Houbová farma · kuchyně</div>
+<h1>Recepty</h1>
+<p class="lead">40 receptů pro čtyři druhy pěstované na farmě. Výběr záměrně kombinuje recepty, kde houba připomíná maso nebo mořské plody, i klasické úpravy, ve kterých zůstává výrazná houbová chuť.</p>
+<section class="stats"><div class="stat"><span class="eyebrow">Celkem</span><strong id="count">40</strong><span>receptů</span></div><div class="stat"><span class="eyebrow">Druhy</span><strong>4</strong><span>× 10 receptů</span></div><div class="stat"><span class="eyebrow">Filtr</span><strong id="shown">40</strong><span>zobrazených</span></div><div class="stat"><span class="eyebrow">Zdrojování</span><strong>100%</strong><span>zdroj + video</span></div></section>
+<div class="toolbar" id="toolbar"></div>
+<section class="grid" id="grid"><div class="empty">Načítám recepty…</div></section>
+<section class="section sourcebox"><div class="eyebrow">Brand & grow sources</div><h2>SvetHub</h2><p class="lead">Pěstební a produktové reference jsou oddělené od kulinárních zdrojů. Odkazy vedou na e-shop SvetHub a jeho YouTube kanál.</p><div class="source-links" id="brandSources"></div></section>
+<footer id="updated"></footer>
+</main>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+let DATA, speciesFilter='all', tasteFilter='all';
+const labels={all:'Vše',koralovec:'Korálovec',citronova:'Hlíva citronová',kralovska:'Hlíva královská',shiitake:'Shiitake'};
+function renderToolbar(){
+ const species=Object.keys(DATA.species);
+ $('#toolbar').innerHTML=
+  `<button class="filter ${speciesFilter==='all'?'active':''}" data-species="all">Vše</button>`+
+  species.map(k=>`<button class="filter ${speciesFilter===k?'active':''}" data-species="${k}">${labels[k]}</button>`).join('')+
+  `<button class="filter ${tasteFilter==='non'?'active':''}" data-taste="non">Ne-houbař friendly</button>`+
+  `<button class="filter ${tasteFilter==='mushroom'?'active':''}" data-taste="mushroom">Houbová chuť</button>`;
+ document.querySelectorAll('[data-species]').forEach(b=>b.onclick=()=>{speciesFilter=b.dataset.species;renderToolbar();renderCards()});
+ document.querySelectorAll('[data-taste]').forEach(b=>b.onclick=()=>{tasteFilter=tasteFilter===b.dataset.taste?'all':b.dataset.taste;renderToolbar();renderCards()});
+}
+function renderCards(){
+ const arr=DATA.recipes.filter(r=>(speciesFilter==='all'||r.species_id===speciesFilter)&&(tasteFilter==='all'||(tasteFilter==='mushroom'?r.mushroom_forward:!r.mushroom_forward)));
+ $('#shown').textContent=arr.length;
+ $('#grid').innerHTML=arr.length?arr.map(r=>`<article class="card">
+ <div class="hero"><img loading="lazy" src="${esc(r.image_url)}" alt="${esc(r.title)}"><span class="pill">${esc(r.taste_profile)}</span></div>
+ <div class="body"><div class="species">${esc(r.species)} · <i>${esc(r.latin)}</i></div><h2>${esc(r.title)}</h2>
+ <div class="meta"><span>⏱ ${r.time_min} min</span><span>🍽 ${r.servings} porce</span></div>
+ <div class="ingredients"><b>Ingredience:</b> ${r.ingredients.map(esc).join(' · ')}</div>
+ <details><summary>Základní postup</summary><ol class="steps">${r.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol></details>
+ <div class="actions"><a href="${esc(r.source.url)}" target="_blank" rel="noopener">Zdroj ↗</a><a class="youtube" href="${esc(r.youtube_url)}" target="_blank" rel="noopener">YouTube ▶</a><a class="svet" href="${esc(DATA.species[r.species_id].svethub)}" target="_blank" rel="noopener">SvetHub ↗</a></div>
+ </div></article>`).join(''):`<div class="empty">Pro zvolený filtr nejsou recepty.</div>`;
+}
+function renderSources(){
+ const b=DATA.brand_sources, links=[['SvetHub e-shop',b.shop],['SvetHub YouTube',b.youtube]];
+ for(const k of ['koralovec','citronova','kralovska','shiitake']) b[k].forEach((u,i)=>links.push([`${labels[k]} · zdroj ${i+1}`,u]));
+ $('#brandSources').innerHTML=links.map(([t,u])=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)} ↗</a>`).join('');
+}
+fetch('./recipes.json?v='+Date.now()).then(r=>r.json()).then(d=>{DATA=d;$('#count').textContent=d.recipes.length;renderToolbar();renderCards();renderSources();$('#updated').textContent=`Aktualizováno ${d.meta.updated} · ${d.recipes.length} receptů`;}).catch(e=>{$('#grid').innerHTML='<div class="empty">Recepty se nepodařilo načíst.</div>';console.error(e)});
+</script>
+</body></html>
