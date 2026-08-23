@@ -1,0 +1,14 @@
+{
+  "date": "2026-08-23",
+  "type": "harvest",
+  "species": "Hlíva citronová",
+  "latin": "Pleurotus citrinopileatus",
+  "flush": 1,
+  "totalGrams": 1170,
+  "harvests": [
+    {"cultureId": "HCIT-01", "grams": 550},
+    {"cultureId": "HCIT-02", "grams": 620}
+  ],
+  "evidence": "Fotografie obou bloků byly pořízeny bezprostředně před sklizní a předány v projektu Houbová farma.",
+  "nextPhase": "regenerace bloků před 2. fruktifikační vlnou"
+}
