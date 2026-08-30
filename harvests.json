@@ -2,28 +2,102 @@
   "meta": {
     "lastUpdated": "2026-08-30T10:25:00+02:00",
     "currency": "EUR",
-    "note": "Samostatná produkční evidence sklizní; používá se pro dashboard a přepočet nákladů na kg."
+    "note": "Samostatná produkční evidence sklizní; používá se pro dashboard a přepočet nákladů na kg. Dne 30. 8. 2026 byl u všech pěti produkčních bloků seříznut igelit přibližně do poloviny výšky pěstební kostky; substrát se neodřezával."
   },
   "cultures": {
     "HCIT-01": {
       "blockPurchaseCostEUR": 5.99,
-      "harvests": [{"flush":1,"date":"2026-08-23","time":null,"grams":550,"note":"1. fruktifikační vlna"}]
+      "harvests": [
+        {
+          "flush": 1,
+          "date": "2026-08-23",
+          "time": null,
+          "grams": 550,
+          "note": "1. fruktifikační vlna"
+        }
+      ],
+      "bagTrim": {
+        "date": "2026-08-30",
+        "time": "10:00",
+        "position": "přibližně do poloviny výšky pěstební kostky",
+        "note": "Seříznut pouze igelit / pěstební sáček; substrátová kostka nebyla tímto zásahem zkrácena."
+      }
     },
     "HCIT-02": {
       "blockPurchaseCostEUR": 5.99,
-      "harvests": [{"flush":1,"date":"2026-08-23","time":null,"grams":620,"note":"1. fruktifikační vlna"}]
+      "harvests": [
+        {
+          "flush": 1,
+          "date": "2026-08-23",
+          "time": null,
+          "grams": 620,
+          "note": "1. fruktifikační vlna"
+        }
+      ],
+      "bagTrim": {
+        "date": "2026-08-30",
+        "time": "10:00",
+        "position": "přibližně do poloviny výšky pěstební kostky",
+        "note": "Seříznut pouze igelit / pěstební sáček; substrátová kostka nebyla tímto zásahem zkrácena."
+      }
     },
     "KOR-01": {
       "blockPurchaseCostEUR": 5.99,
-      "harvests": [{"flush":1,"date":"2026-08-30","time":"10:00","grams":358,"note":"1. fruktifikační vlna"}]
+      "harvests": [
+        {
+          "flush": 1,
+          "date": "2026-08-30",
+          "time": "10:00",
+          "grams": 358,
+          "note": "1. fruktifikační vlna"
+        }
+      ],
+      "bagTrim": {
+        "date": "2026-08-30",
+        "time": "10:00",
+        "position": "přibližně do poloviny výšky pěstební kostky",
+        "note": "Seříznut pouze igelit / pěstební sáček; substrátová kostka nebyla tímto zásahem zkrácena."
+      }
     },
     "KOR-02": {
       "blockPurchaseCostEUR": 5.99,
-      "harvests": [{"flush":1,"date":"2026-08-30","time":"10:00","grams":529,"componentsG":[134,395],"note":"1. fruktifikační vlna; váženo ve dvou částech 134 g + 395 g. Při sklizni odříznut celý díl pěstební kostky přibližně do poloviny."}]
+      "harvests": [
+        {
+          "flush": 1,
+          "date": "2026-08-30",
+          "time": "10:00",
+          "grams": 529,
+          "componentsG": [
+            134,
+            395
+          ],
+          "note": "1. fruktifikační vlna; váženo ve dvou částech 134 g + 395 g."
+        }
+      ],
+      "bagTrim": {
+        "date": "2026-08-30",
+        "time": "10:00",
+        "position": "přibližně do poloviny výšky pěstební kostky",
+        "note": "Seříznut pouze igelit / pěstební sáček; substrátová kostka nebyla tímto zásahem zkrácena."
+      }
     },
     "HKR-01": {
       "blockPurchaseCostEUR": 9.99,
-      "harvests": [{"flush":1,"date":"2026-08-30","time":"10:00","grams":710,"note":"1. fruktifikační vlna; čistá hmotnost"}]
+      "harvests": [
+        {
+          "flush": 1,
+          "date": "2026-08-30",
+          "time": "10:00",
+          "grams": 710,
+          "note": "1. fruktifikační vlna; čistá hmotnost"
+        }
+      ],
+      "bagTrim": {
+        "date": "2026-08-30",
+        "time": "10:00",
+        "position": "přibližně do poloviny výšky pěstební kostky",
+        "note": "Seříznut pouze igelit / pěstební sáček; substrátová kostka nebyla tímto zásahem zkrácena."
+      }
     }
   }
 }
