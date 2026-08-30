@@ -1,0 +1,9 @@
+{
+  "date": "2026-08-30",
+  "time": "10:00",
+  "type": "cultivation",
+  "cultures": ["KOR-01", "KOR-02", "HCIT-01", "HCIT-02", "HKR-01"],
+  "action": "Seříznutí pěstebního sáčku / igelitu",
+  "position": "přibližně do poloviny výšky pěstební kostky",
+  "note": "Platí pro všech pět produkčních bloků. Seříznut byl pouze igelit; substrátová kostka nebyla odříznuta ani zkrácena."
+}
