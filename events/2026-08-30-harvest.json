@@ -3,10 +3,34 @@
   "time": "10:00",
   "type": "harvest",
   "cultures": [
-    {"cultureId":"HKR-01","species":"Hlíva královská","grams":710,"flush":1,"note":"čistá hmotnost"},
-    {"cultureId":"KOR-01","species":"Korálovec ježovitý","grams":358,"flush":1},
-    {"cultureId":"KOR-02","species":"Korálovec ježovitý","grams":529,"flush":1,"componentsG":[134,395],"note":"váženo ve dvou částech 134 g + 395 g; při sklizni odříznut celý díl pěstební kostky přibližně do poloviny"}
+    {
+      "cultureId": "HKR-01",
+      "species": "Hlíva královská",
+      "grams": 710,
+      "flush": 1,
+      "note": "čistá hmotnost"
+    },
+    {
+      "cultureId": "KOR-01",
+      "species": "Korálovec ježovitý",
+      "grams": 358,
+      "flush": 1
+    },
+    {
+      "cultureId": "KOR-02",
+      "species": "Korálovec ježovitý",
+      "grams": 529,
+      "flush": 1,
+      "componentsG": [134, 395],
+      "note": "váženo ve dvou částech 134 g + 395 g"
+    }
   ],
   "totalGrams": 1597,
-  "note": "Celková sklizeň dne 30. 8. 2026 v 10:00: 1,597 kg. Část sdělení o zásahu do citronových bloků nebyla dostatečně jednoznačná pro přesný zápis."
+  "note": "Celková sklizeň dne 30. 8. 2026 v 10:00: 1,597 kg. Ve stejný den byl u všech pěti produkčních bloků seříznut pouze igelit přibližně do poloviny výšky pěstební kostky.",
+  "bagTrim": {
+    "cultures": ["KOR-01", "KOR-02", "HCIT-01", "HCIT-02", "HKR-01"],
+    "action": "seříznutí igelitu / pěstebního sáčku",
+    "position": "přibližně do poloviny výšky pěstební kostky",
+    "note": "Upřesnění: seříznut byl pouze igelit u všech pěti produkčních bloků; substrátová kostka se tímto zásahem neodřezávala."
+  }
 }
