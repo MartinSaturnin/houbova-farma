@@ -1,0 +1,14 @@
+{
+  "date": "2026-08-30",
+  "type": "photo-observation",
+  "context": "Fotografie pořízené v den sklizně.",
+  "order": ["KOR-01", "KOR-02", "HCIT-01", "HCIT-02", "HKR-01"],
+  "observations": [
+    {"cultureId":"KOR-01","state":"1. fruktifikační vlna – sklizňový den","visual":"světlé kompaktní plodnice s vyvinutou jemnou ostnitou strukturou"},
+    {"cultureId":"KOR-02","state":"1. fruktifikační vlna – sklizňový den","visual":"větší shluk světlých plodnic s vyvinutou ostnitou strukturou"},
+    {"cultureId":"HCIT-01","state":"regenerace po 1. fruktifikační vlně","visual":"odhalená sklizňová plocha s reziduálními třeni a hnědavým zabarvením"},
+    {"cultureId":"HCIT-02","state":"regenerace po 1. fruktifikační vlně","visual":"odhalená sklizňová plocha s reziduálními třeni a hnědavým zabarvením"},
+    {"cultureId":"HKR-01","state":"1. fruktifikační vlna – sklizňový den","visual":"rozvinuté plodnice s mohutnými třeni a šedohnědými klobouky; více velikostních kategorií v jednom trsu"}
+  ],
+  "measurementVisibleInPhoto": {"temperatureC":18.9,"humidityRH":65,"note":"Hodnota je odečtena z displeje viditelného na fotografii; nejde o náhradu minutového SwitchBot exportu."}
+}
