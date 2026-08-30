@@ -8,13 +8,14 @@
       "species": "Hlíva královská",
       "grams": 710,
       "flush": 1,
-      "note": "čistá hmotnost"
+      "note": "čistá hmotnost; fotografie pořízeny v den sklizně"
     },
     {
       "cultureId": "KOR-01",
       "species": "Korálovec ježovitý",
       "grams": 358,
-      "flush": 1
+      "flush": 1,
+      "note": "fotografie pořízena v den sklizně"
     },
     {
       "cultureId": "KOR-02",
@@ -22,15 +23,20 @@
       "grams": 529,
       "flush": 1,
       "componentsG": [134, 395],
-      "note": "váženo ve dvou částech 134 g + 395 g"
+      "note": "váženo ve dvou částech 134 g + 395 g; fotografie pořízena v den sklizně"
     }
   ],
   "totalGrams": 1597,
+  "photoContext": {
+    "date": "2026-08-30",
+    "order": ["KOR-01", "KOR-02", "HCIT-01", "HCIT-02", "HKR-01"],
+    "note": "Fotodokumentace byla pořízena 30. 8. 2026, tedy v den sklizně KOR-01, KOR-02 a HKR-01. HCIT-01 a HCIT-02 zachycují aktuální stav po sklizni 1. fruktifikační vlny z 23. 8."
+  },
   "note": "Celková sklizeň dne 30. 8. 2026 v 10:00: 1,597 kg. Ve stejný den byl u všech pěti produkčních bloků seříznut pouze igelit přibližně do poloviny výšky pěstební kostky.",
   "bagTrim": {
     "cultures": ["KOR-01", "KOR-02", "HCIT-01", "HCIT-02", "HKR-01"],
     "action": "seříznutí igelitu / pěstebního sáčku",
     "position": "přibližně do poloviny výšky pěstební kostky",
-    "note": "Upřesnění: seříznut byl pouze igelit u všech pěti produkčních bloků; substrátová kostka se tímto zásahem neodřezávala."
+    "note": "Seříznut byl pouze igelit u všech pěti produkčních bloků; substrátová kostka se tímto zásahem neodřezávala."
   }
 }
