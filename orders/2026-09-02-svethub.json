@@ -1,0 +1,19 @@
+{
+  "date": "2026-09-02",
+  "status": "objednáno – čeká na doručení",
+  "supplier": "SvětHub",
+  "source": "screenshot objednávky od uživatele",
+  "items": [
+    {"name":"Hlíva růžová – tekuté mycelium","quantity":1,"unitPriceEUR":9.99,"lineTotalEUR":9.99},
+    {"name":"Korálovec ježovitý – zrnitá houbová sadba","quantity":1,"unitPriceEUR":9.99,"lineTotalEUR":9.99},
+    {"name":"Korálovec ježovitý – tekuté mycelium","quantity":1,"unitPriceEUR":9.99,"lineTotalEUR":9.99},
+    {"name":"Sáček na pěstování hub (střední)","quantity":10,"unitPriceEUR":0.80,"lineTotalEUR":8.00},
+    {"name":"Čisté bukové brikety","variant":"10 kg","quantity":1,"unitPriceEUR":5.99,"lineTotalEUR":5.99}
+  ],
+  "visibleItemsSubtotalEUR": 43.96,
+  "shippingEUR": null,
+  "orderTotalEUR": null,
+  "inventoryStatus": "nezapočítávat do fyzického inventáře do potvrzení doručení",
+  "costAccountingStatus": "zatím evidovat jako pending objednávku; finální náklad doplnit po potvrzení kompletní částky / faktury",
+  "note": "Na přiloženém screenshotu není vidět doprava ani finální součet objednávky. Po doručení uživatel potvrdí převzetí a stav položek."
+}
