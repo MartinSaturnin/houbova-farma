@@ -1,0 +1,14 @@
+{
+  "date": "2026-09-02",
+  "time": "19:01",
+  "type": "purchase",
+  "supplier": "Alza.sk",
+  "item": "Vákuovačka CONCEPT VA0040",
+  "quantity": 1,
+  "unit": "ks",
+  "priceEUR": 59.86,
+  "category": "vybavení / balení",
+  "status": "pořízeno",
+  "url": "https://www.alza.sk/concept-va0040-d6226658.htm",
+  "image": "https://image.alza.cz/products/CONVA840/CONVA840.jpg?width=80&height=80"
+}
