@@ -1,0 +1,13 @@
+{
+  "date": "2026-09-15",
+  "type": "harvest",
+  "cultures": [
+    {
+      "cultureId": "HKR-01",
+      "species": "Hlíva královská",
+      "flush": 2,
+      "grams": 549
+    }
+  ],
+  "totalGrams": 549
+}
