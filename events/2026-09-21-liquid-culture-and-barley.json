@@ -1,0 +1,36 @@
+{
+  "date": "2026-09-21",
+  "type": "culture-preparation",
+  "location": "spíž, tma, přibližně 18–20 °C",
+  "liquidCulture": {
+    "vessels": 3,
+    "vesselType": "zavařovací sklenice",
+    "lids": "domácí silikonová injekční membrána a větrací otvor s umělým vláknem",
+    "reportedMixture": {
+      "waterMl": 500,
+      "honeyG": 15,
+      "scope": "uživatel neuvedl, zda jde o společnou dávku pro tři sklenice, nebo o množství na sklenici"
+    },
+    "pressureCookerMinutesReported": "5–10",
+    "sterilityVerified": false,
+    "inoculations": [
+      {"cultureId": "HKR-LC-20260921-01", "species": "Hlíva královská", "lidColor": "bílá", "status": "naočkováno, čistota neověřena"},
+      {"cultureId": "HKR-LC-20260921-02", "species": "Hlíva královská", "lidColor": "bílá", "status": "naočkováno, čistota neověřena"},
+      {"cultureId": "SHI-LC-20260921-01", "species": "Shiitake", "lidColor": "žlutá", "status": "naočkováno, čistota neověřena"}
+    ]
+  },
+  "barley": {
+    "preparedAt": "2026-09-21",
+    "preparationReported": "ječmen byl před namáčením vařen, pak přibližně 24 hodin namáčen; osušen na plechu, naplněn do sáčků",
+    "amountAndBagCount": "neuvedeno",
+    "pressureCookerMinutesReported": 60,
+    "pressureReported": "10 PSI přetlaku (přibližně 0,69 bar); jednotka následně výslovně potvrzena uživatelem",
+    "sterilityVerified": false,
+    "storage": "ve spíži ve tmě přibližně při 18–20 °C, nechává vychladnout",
+    "inoculationPlan": {"date": "2026-09-22", "status": "plánováno, dosud nepotvrzeno", "inoculum": "zbytek tekutého mycelia, přesné druhy a množství pro jednotlivé sáčky neuvedeny"}
+  },
+  "reserved": [
+    {"species": "Hlíva růžová", "form": "tekuté mycelium", "amountMl": 10, "status": "ponecháno na později"}
+  ],
+  "safetyNote": "Tlak byl upřesněn na 10 PSI, nikoli 10 bar. Jde o nižší tlak než přibližně 15 PSI odpovídajících nasycené páře kolem 121 °C; z uvedených časů nelze potvrdit sterilitu živné vody ani zrna. Vždy dodržet výrobcem povolený tlak tlakového hrnce."
+}
