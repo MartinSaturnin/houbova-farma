@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-30T10:25:00+02:00",
+    "lastUpdated": "2026-09-15",
     "currency": "EUR",
-    "note": "Samostatná produkční evidence sklizní; používá se pro dashboard a přepočet nákladů na kg. Dne 30. 8. 2026 byl u všech pěti produkčních bloků seříznut igelit přibližně do poloviny výšky pěstební kostky; substrát se neodřezával."
+    "note": "Samostatná produkční evidence sklizní; používá se pro dashboard a přepočet nákladů na použitelný kg. Dne 13. 9. byly sklizeny obě hlívy citronové, každá přibližně 350 g, obě vyschlé a znehodnocené. Dne 15. 9. byla sklizena hlíva královská 549 g."
   },
   "cultures": {
     "HCIT-01": {
@@ -14,6 +14,16 @@
           "time": null,
           "grams": 550,
           "note": "1. fruktifikační vlna"
+        },
+        {
+          "flush": 2,
+          "date": "2026-09-13",
+          "time": null,
+          "grams": 350,
+          "estimated": true,
+          "usableGrams": 0,
+          "condition": "vyschlé a znehodnocené",
+          "note": "2. fruktifikační vlna; přibližně 350 g, vyschlo naší vinou; nepoužitelné"
         }
       ],
       "bagTrim": {
@@ -32,6 +42,16 @@
           "time": null,
           "grams": 620,
           "note": "1. fruktifikační vlna"
+        },
+        {
+          "flush": 2,
+          "date": "2026-09-13",
+          "time": null,
+          "grams": 350,
+          "estimated": true,
+          "usableGrams": 0,
+          "condition": "vyschlé a znehodnocené",
+          "note": "2. fruktifikační vlna; přibližně 350 g, vyschlo naší vinou; nepoužitelné"
         }
       ],
       "bagTrim": {
@@ -90,6 +110,13 @@
           "time": "10:00",
           "grams": 710,
           "note": "1. fruktifikační vlna; čistá hmotnost"
+        },
+        {
+          "flush": 2,
+          "date": "2026-09-15",
+          "time": null,
+          "grams": 549,
+          "note": "2. fruktifikační vlna; sklizeno 549 g"
         }
       ],
       "bagTrim": {
