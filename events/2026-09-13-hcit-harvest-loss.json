@@ -1,0 +1,27 @@
+{
+  "date": "2026-09-13",
+  "type": "harvest-loss",
+  "cultures": [
+    {
+      "cultureId": "HCIT-01",
+      "species": "Hlíva citronová",
+      "flush": 2,
+      "estimatedGrams": 350,
+      "usableGrams": 0,
+      "condition": "vyschlé",
+      "note": "Sklizeno po vyschnutí během pěstování; přibližná hmotnost dle pěstitelského záznamu."
+    },
+    {
+      "cultureId": "HCIT-02",
+      "species": "Hlíva citronová",
+      "flush": 2,
+      "estimatedGrams": 350,
+      "usableGrams": 0,
+      "condition": "vyschlé",
+      "note": "Sklizeno po vyschnutí během pěstování; přibližná hmotnost dle pěstitelského záznamu."
+    }
+  ],
+  "estimatedTotalGrams": 700,
+  "usableTotalGrams": 0,
+  "cause": "vyschnutí vinou pěstitelských podmínek"
+}
