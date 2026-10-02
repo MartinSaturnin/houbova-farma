@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-02",
+  "type": "production-inoculation-and-lifecycle-update",
+  "species": "Korálovec ježovitý",
+  "latin": "Hericium erinaceus",
+  "productionBatch": {
+    "batchId": "KOR-BATCH-20261002",
+    "blocks": 8,
+    "blockIds": [
+      "KOR-03",
+      "KOR-04",
+      "KOR-05",
+      "KOR-06",
+      "KOR-07",
+      "KOR-08",
+      "KOR-09",
+      "KOR-10"
+    ],
+    "weightPerBlockKg": {
+      "min": 4,
+      "max": 4.4,
+      "estimated": true
+    },
+    "totalSubstrateKg": {
+      "min": 32,
+      "max": 35.2,
+      "estimated": true
+    },
+    "spawnCondition": "zrnitá sadba byla dlouho prorostlá a již začínala vytvářet plodnice",
+    "substrateComposition": "v dnešním hlášení nebyla znovu vyčíslena; navazuje na aktuálně připravovanou směs bukových briket, sójových slupek a 1 % sádry",
+    "status": "inokulováno, kolonizace zahájena"
+  },
+  "grainRescueExperiment": {
+    "cultures": 2,
+    "cultureIds": [
+      "KOR-GR-EXP-01",
+      "KOR-GR-EXP-02"
+    ],
+    "history": "zrno dříve po očkování neprorostlo",
+    "action": "přidána prorostlá sadba korálovce",
+    "status": "experiment, čistota a životaschopnost neověřena",
+    "risk": "zvýšené riziko skryté bakteriální nebo plísňové kontaminace; vést odděleně od produkční várky"
+  },
+  "incubation": {
+    "location": "Sklad2 v domě",
+    "light": "tma",
+    "temperatureReportedC": 20,
+    "temperatureApproximate": true,
+    "sensorMeasurement": "přesnější měření bude doplněno"
+  },
+  "endedCultures": {
+    "cultureIds": [
+      "KOR-01",
+      "KOR-02",
+      "HCIT-01",
+      "HCIT-02",
+      "HKR-01"
+    ],
+    "reason": "staré produkční bloky byly vyhodnoceny jako špatné",
+    "status": "ukončeno; likvidace plánována, její provedení dosud nepotvrzeno"
+  },
+  "dataQuality": {
+    "exactIndividualBlockWeights": "neuvedeny",
+    "exactSpawnAmount": "neuvedeno",
+    "exactSubstrateRecipeInThisReport": "neuveden",
+    "exactIncubationTemperature": "čeká na senzor"
+  }
+}
