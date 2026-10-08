@@ -1,0 +1,113 @@
+{
+  "date": "2026-10-08",
+  "type": "fruiting-climate-diagnostics",
+  "status": "otevřený diagnostický případ – příčinu stagnace nelze potvrdit pouze z T/RH",
+  "species": "Hlíva královská",
+  "latin": "Pleurotus eryngii",
+  "cultureId": null,
+  "cultureLinkNote": "Nepřiřazeno k HKR-01: tento původní zakoupený blok je v data.json ukončen k 2026-10-02; identita nynějších plodnic nebyla ověřena.",
+  "growerObservation": "Malé plodničky se podle uživatele vizuálně neposouvají ve vývoji; prostor má zvlhčovač.",
+  "sensor": {
+    "id": "ENV-IN-01",
+    "label": "10cm mezi houby pozice 1",
+    "sourceFile": "10cm mezi houby pozice 1_data.csv",
+    "fullRecord": {
+      "fromLocal": "2026-08-15 13:45",
+      "toLocal": "2026-10-08 19:09",
+      "rows": 78061,
+      "temperatureMeanC": 17.02,
+      "temperatureMinC": 11.9,
+      "temperatureMaxC": 29.9,
+      "rhMeanPercent": 61.35,
+      "rhMinPercent": 30,
+      "rhMaxPercent": 81,
+      "samplesRHAboveOrEqual85": 0
+    },
+    "lastSevenDays": {
+      "rows": 10081,
+      "temperatureMeanC": 14.1,
+      "temperatureMinC": 11.9,
+      "temperatureMaxC": 29.9,
+      "rhMeanPercent": 58.25,
+      "rhMinPercent": 30,
+      "rhMaxPercent": 78,
+      "samplesRHAboveOrEqual85": 0
+    },
+    "latest": {
+      "timeLocal": "2026-10-08 19:09",
+      "temperatureC": 12.9,
+      "rh": 63,
+      "dptC": 6,
+      "vpdKPa": 0.55,
+      "absHumidityGM3": 7.1
+    },
+    "dailyExtremes": [
+      {
+        "date": "2026-10-03",
+        "maxTemperatureC": 20.3,
+        "minRh": 43
+      },
+      {
+        "date": "2026-10-04",
+        "maxTemperatureC": 27,
+        "minRh": 32
+      },
+      {
+        "date": "2026-10-05",
+        "maxTemperatureC": 29.2,
+        "minRh": 30
+      },
+      {
+        "date": "2026-10-06",
+        "maxTemperatureC": 29.9,
+        "minRh": 36
+      },
+      {
+        "date": "2026-10-07",
+        "maxTemperatureC": 18.3,
+        "minRh": 48
+      },
+      {
+        "date": "2026-10-08",
+        "maxTemperatureC": 12.9,
+        "minRh": 57
+      }
+    ]
+  },
+  "assessment": {
+    "nightTemperature": "Pokles k 12 °C není sám o sobě kritický pro Pleurotus eryngii, ale může zpomalovat růst.",
+    "humidity": "Velmi nízká vlhkost u plodnic je pravděpodobnější problém; účinnost zvlhčovače u plodnic je třeba ověřit nezávislým senzorem.",
+    "daytimeHeating": "Teplotní špičky kolem 27–30 °C mohou ohrožovat plodnice, je však nutno vyloučit lokální přehřátí senzoru.",
+    "co2": "CO₂ neměřeno – větrací deficit nelze potvrdit."
+  },
+  "actionPlan": [
+    "Ověřit RH druhým senzorem v úrovni plodnic; při potvrzeném suchu směřovat RH při růstu primordií přibližně k 85–90 % (dle fáze, bez stékající vody).",
+    "Ověřit přímé sluneční záření nebo přehřívání senzoru při denních špičkách.",
+    "Větrat s malým regulovatelným ventilátorem odsávajícím ven a zajistit pasivní přívod čerstvého filtrovaného vzduchu na opačné straně; nepouštět proud přímo na plodnice.",
+    "Při možnostech měřit CO₂ v úrovni bloků a nastavovat větrání podle koncentrace, s kontrolou RH a teploty.",
+    "Pořídit fotky stejných plodnic s měřítkem v odstupu 3–5 dní; rozlišit aktivní pomalý růst od abortů."
+  ],
+  "ventilation": {
+    "recommendedConfiguration": "mechanický odtah ven, pasivní přívod přes chráněný otvor na protější straně",
+    "currentState": "neznámý; jde o doporučení, nikoli potvrzenou realizaci",
+    "controllingMetrics": [
+      "CO₂",
+      "RH",
+      "teplota"
+    ],
+    "note": "Na větší ploše lze použít přívodní i odtahový ventilátor; u malého prostoru přednostně začít s regulovatelným odtahem. Neprovozovat na základě libovolně odhadovaných minut bez měření."
+  },
+  "references": [
+    {
+      "title": "Effects of Various Ventilation Systems on the Carbon Dioxide Concentration and Fruiting Body Formation of King Oyster Mushroom",
+      "url": "https://library.nih.go.kr/ncmiklib/elib/kom/articleDtl.do?pk_pb_seq=PB07434519"
+    }
+  ],
+  "dataQuality": {
+    "csvAvailability": "CSV přiložen v konverzaci; v GitHub evidenci je uložen souhrn, nikoli celý původní minutový export.",
+    "co2Measured": false,
+    "photosProvided": false,
+    "actualVentilationVerified": false,
+    "humidityAtFruitingBodiesNeedsVerification": true
+  }
+}
