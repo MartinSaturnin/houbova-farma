@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-08",
+  "type": "incubation-environment-observation",
+  "species": "Korálovec ježovitý",
+  "latin": "Hericium erinaceus",
+  "batchId": "KOR-BATCH-20261002",
+  "blockIds": [
+    "KOR-03",
+    "KOR-04",
+    "KOR-05",
+    "KOR-06",
+    "KOR-07",
+    "KOR-08",
+    "KOR-09",
+    "KOR-10"
+  ],
+  "stage": "colonization",
+  "userObservation": "Vizuálně se jim daří.",
+  "observationEvidence": "subjektivní pozorování uživatele, fotografie nebyla dodána",
+  "environment": {
+    "sensorId": "ENV-CELLAR-01",
+    "sensorLabel": "SwitchBot Meter Plus 30",
+    "location": "sklep; přesné umístění čidla nepotvrzeno",
+    "sourceCsv": "logs/environment/2026-09-25_2026-10-08-switchbot-meter-plus-30.csv",
+    "from": "2026-09-25T13:54",
+    "to": "2026-10-08T19:19",
+    "measurements": {
+      "rows": 19043,
+      "from": "2026-09-25T13:54",
+      "to": "2026-10-08T19:19",
+      "temperatureC": [
+        16.9,
+        19.1,
+        23.8
+      ],
+      "rh": [
+        46,
+        59.48,
+        75
+      ],
+      "dptC": [
+        7.3,
+        10.91,
+        16.8
+      ],
+      "vpdKPa": [
+        0.56,
+        0.91,
+        1.57
+      ],
+      "absHumidity": [
+        7.59,
+        9.71,
+        14.06
+      ],
+      "below18Percent": 48.79,
+      "afterInoculationDayAverageC": 17.67,
+      "lastThreeDaysMeanC": 17.07
+    },
+    "latest": {
+      "time": "2026-10-08T19:19:00",
+      "temperatureC": 17,
+      "rh": 71,
+      "dptC": 11.7,
+      "vpdKPa": 0.56,
+      "absHumidity": 10.27
+    },
+    "interpretation": {
+      "status": "Inkubace probíhá; teplota od 6.10. kolem 17 °C je stabilní, nižší než pro rychlé prorůstání.",
+      "recommendation": "Pokud prorůstání pokračuje, bez zásadního zásahu; pro urychlení je možné mířit na vzduch cca 20–21 °C při kontrole teploty uvnitř sáčků; uzavřené sáčky není kvůli tomuto exportu nutné dodatečně zvlhčovat.",
+      "limitation": "Jde o teplotu a RH vzduchu, nikoli substrátu. Růst mycelia ani nepřítomnost kontaminace nebyly přímo měřeny."
+    }
+  },
+  "quality": {
+    "originalMinutelyRows": 19043,
+    "chartAggregation": "3hodinový průměr",
+    "dailyAggregation": "denní min/průměr/max",
+    "fullOriginalCsvRetained": true,
+    "incubationDay": "2026-10-02",
+    "incubationDayExactTimeUnknown": true,
+    "sourcePeriodPrecedesInoculation": true,
+    "completeColonizationConfirmed": false,
+    "contaminationFreeConfirmed": false,
+    "oldINOUTUntouched": true
+  }
+}
