@@ -8,11 +8,11 @@
     "note": "Druhá vlna: 13. 9. 2026 hlíva citronová HCIT-01 a HCIT-02 přibližně po 350 g, obě sklizně znehodnocené vyschnutím vinou pěstitelských podmínek; 15. 9. 2026 hlíva královská HKR-01 549 g. Celková sklizená hmotnost zahrnuje odhadované ztráty, použitelný výnos je veden samostatně. Dne 21. 9. připraveny tři sklenice tekuté kultury (2× hlíva královská, 1× shiitake) a ječmen ve filtračních sáčcích; ječmen nebyl dosud inokulován. Tlak 10 PSI potvrzen uživatelem, sterilita obou příprav neověřena. Dne 2. 10. 2026 bylo inokulováno osm vlastních substrátových bloků korálovce po přibližně 4–4,4 kg a založeny dva oddělené záchranné pokusy na dříve neúspěšném zrnu. Staré zakoupené produkční bloky KOR-01, KOR-02, HCIT-01, HCIT-02 a HKR-01 byly ukončeny a určeny k likvidaci."
   },
   "environment": {
-    "temperatureC": 17.2,
-    "humidityRH": 62,
-    "lastMeasurementAt": "2026-09-20T19:14:00+02:00",
+    "temperatureC": 12.9,
+    "humidityRH": 63,
+    "lastMeasurementAt": "2026-10-08T19:09:00+02:00",
     "measurementMethod": "SwitchBot – import CSV, ENV-IN-01",
-    "sensorStatus": "ENV-IN-01 aktualizován do 20. 9. 2026 19:14 (17,2 °C / 62 % RH); ENV-OUT-01 zatím v evidenci do 30. 8. 2026.",
+    "sensorStatus": "ENV-IN-01: nový CSV export do 8. 10. 2026 19:09 (12,9 °C / 63 % RH). Detailní starší graf klimatu byl dosud pouze do 20. 9.; ENV-OUT-01 nebyl nově importován.",
     "sensors": [
       {
         "id": "ENV-IN-01",
@@ -97,6 +97,59 @@
       },
       "linkToBatch": "KOR-BATCH-20261002",
       "exactSensorPlacementConfirmed": false
+    },
+    "fruitingDiagnostics": {
+      "id": "HKR-FRUITING-DIAG-20261008",
+      "date": "2026-10-08",
+      "eventFile": "events/2026-10-08-hkr-fruiting-diagnostics.json",
+      "title": "Hlíva královská – stagnace mladých plodnic",
+      "status": "Diagnostika otevřená",
+      "cultureId": null,
+      "cultureNote": "Identita nového pozorování nepotvrzena; původní HKR-01 je veden jako ukončený 2. 10.",
+      "sourceSensor": "ENV-IN-01",
+      "sourceFile": "10cm mezi houby pozice 1_data.csv",
+      "from": "2026-08-15 13:45",
+      "to": "2026-10-08 19:09",
+      "totalRows": 78061,
+      "lastSevenDays": {
+        "temperatureAverageC": 14.1,
+        "temperatureMinimumC": 11.9,
+        "temperatureMaximumC": 29.9,
+        "rhAverage": 58.25,
+        "rhMinimum": 30,
+        "rhMaximum": 78,
+        "highHumiditySamples85Plus": 0
+      },
+      "recentHeatPeaks": [
+        {
+          "date": "2026-10-04",
+          "temperatureC": 27
+        },
+        {
+          "date": "2026-10-05",
+          "temperatureC": 29.2
+        },
+        {
+          "date": "2026-10-06",
+          "temperatureC": 29.9
+        }
+      ],
+      "observation": "Malé plodnice se podle uživatele vizuálně nezvětšují, přestože je v prostoru zvlhčovač.",
+      "interpretation": "Nočních 12 °C není samo o sobě hlavním problémem. Suchý vzduch a možné denní přehřívání jsou významnější podezření; CO₂ neměřeno. Diagnóza zatím nepotvrzena.",
+      "recommendedTargets": {
+        "dayTemperatureC": "15–17",
+        "nightTemperatureC": "12–15",
+        "rhPercent": "85–90",
+        "co2": "zjistit měřením; větrání řídit podle naměřeného CO₂"
+      },
+      "ventilation": "Pro menší prostor přednostně regulovatelný odtah ven; na opačné straně pasivní přívod čerstvého filtrovaného vzduchu. Zamezit průvanu na plodnice; při přívodu z venku hlídat pokles T/RH.",
+      "nextSteps": [
+        "Ověřit RH u plodnic druhým senzorem",
+        "Prověřit přehřívání senzoru / prostoru kolem poledne",
+        "Ověřit přívod i odtah a doplnit CO₂ měření",
+        "Porovnat fotografie plodnic s měřítkem za 3–5 dní"
+      ],
+      "dataCoverageNote": "Souhrn z minutového CSV je aktualizován do 8. 10.; detailní historický 3hodinový graf v climate-history.json je bez doplnění nových dat."
     }
   },
   "productionForecast": {
